@@ -3,7 +3,7 @@ FROM openjdk as builder
 COPY . /source
 WORKDIR /source
 RUN apk update --quiet
-RUN apk --assume-yes install  maven
+RUN apk add --assume-yes --update  maven
 RUN mvn clean package
 
 
