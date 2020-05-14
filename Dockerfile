@@ -1,4 +1,4 @@
-FROM styx.lenze.com:5000/mosaiq-store/jdk11 as builder
+FROM openjdk as builder
 
 COPY . /source
 WORKDIR /source
