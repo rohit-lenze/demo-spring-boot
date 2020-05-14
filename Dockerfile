@@ -2,8 +2,8 @@ FROM openjdk as builder
 
 COPY . /source
 WORKDIR /source
-RUN apt-get update --quiet
-RUN apt-get --assume-yes install  maven
+RUN apk update --quiet
+RUN apk --assume-yes install  maven
 RUN mvn clean package
 
 
