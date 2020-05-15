@@ -20,10 +20,3 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build the latest Docker image
       run: docker build -t rohit/sample:latest .
-    - name: Nexus IQ for GitHub Actions
-      uses: sonatype-nexus-community/iq-github-action@1.1.0
-      with:
-        serverUrl: http://localhost:8081/#admin/repository/repositories:nexus_spring-helloworld
-        username: admin
-        password: admin123
-        filename: rohit/sample:latest
