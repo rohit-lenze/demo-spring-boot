@@ -1,4 +1,4 @@
-FROM maven as builder
+#FROM maven as builder
 
 COPY . /source
 WORKDIR /source
