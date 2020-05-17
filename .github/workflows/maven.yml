@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: docker login
+      run: docker login -u ${{ secrets.DOCKER_USERNAME  }} -p ${{ secrets.DOCKER_PASSWORD  }}
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -20,7 +22,5 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build the latest Docker image
       run: docker build -t rohit/sample_1:latest .
-    - name: docker login
-      run: docker login -u ${{ secrets.DOCKER_USERNAME  }} -p ${{ secrets.DOCKER_PASSWORD  }}
     - name: docker tag
       run: docker tag rohit_sample_1:latest rohitsinghhoneywell/myrepo:rohit_sample_1
