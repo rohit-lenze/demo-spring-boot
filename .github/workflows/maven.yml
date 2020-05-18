@@ -9,7 +9,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.8
@@ -18,5 +20,20 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Build the latest Docker image
-      run: docker build -t rohit/sample:latest
+    - name: Build the docker image and publish
+      run: |
+        docker build . --file Dockerfile --tag docker.pkg.github.com/rohit-lenze/demo-spring-boot/app:1.0.0
+        docker login docker.pkg.github.com --username rohit-lenze --password ${{ secrets.GITHUB_TOKEN }}
+        docker push docker.pkg.github.com/rohit-lenze/demo-spring-boot/app:1.0.0
+    #- name: push to docker hub
+    #  run: |
+    #    docker tag helloworld-image rohitsinghhoneywell/myrepo:1.0
+    #    docker push rohitsinghhoneywell/myrepo:1.0
+    #####################################
+    #- name: push to nexus
+    #  run: |
+    #    docker tag helloworld-image nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
+    #    docker push nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
+      
+      
+      
