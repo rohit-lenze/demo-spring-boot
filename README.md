@@ -24,7 +24,7 @@ The YAML file that defines your workflow configuration with at least one job. Th
 You need an access token to publish, install, and delete packages in GitHub Packages. You can use a personal access token to authenticate with your username directly to GitHub Packages or the GitHub API. You can use a GITHUB_TOKEN to authenticate using a GitHub Actions workflow. You can authenticate to GitHub Packages with Docker using the docker login command.
 
 <b> alternatively we can do below for login: </b> 
-<i> docker login docker.pkg.github.com --username <user> --password <password> </i>
+<i> docker login docker.pkg.github.com --username [user] --password [password] </i>
 
 
 For more information visit https://help.github.com/en
