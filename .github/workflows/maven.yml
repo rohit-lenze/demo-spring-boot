@@ -23,7 +23,7 @@ jobs:
     - name: Build the docker image and publish
       run: |
         docker build . --file Dockerfile --tag docker.pkg.github.com/rohit-lenze/demo-spring-boot/app:1.0.0
-        docker login docker.pkg.github.com --username rohit-lenze --password ${{ secrets.GITHUB_TOKEN }}
+        docker login docker.pkg.github.com --username rohit-lenze --password ${{ GITHUB_TOKEN }}
         docker push docker.pkg.github.com/rohit-lenze/demo-spring-boot/app:1.0.0
     #- name: push to docker hub
     #  run: |
