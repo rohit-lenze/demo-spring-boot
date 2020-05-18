@@ -25,10 +25,14 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: create docker image
       run: docker build -t helloworld-image .
-    - name: push to nexus
+    - name: push to docker hub
       run: |
-        docker tag helloworld-image nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
-        docker push nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
+        docker tag helloworld-image rohitsinghhoneywell/myrepo:1.0
+        docker push rohitsinghhoneywell/myrepo:1.0
+    #- name: push to nexus
+    #  run: |
+    #    docker tag helloworld-image nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
+    #    docker push nat01.encowayhb.lokal:5002/mosaiq-store/mosaiq-store:latest
       
       
       
