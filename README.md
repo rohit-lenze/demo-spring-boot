@@ -20,4 +20,10 @@ A set of steps that execute on the same runner. You can define the dependency ru
 * <B>Workflow file:</B>
 The YAML file that defines your workflow configuration with at least one job. This file lives in the root of your GitHub repository in the .github/workflows directory.
 
+* <B>Authenticating to GitHub Packages</B>
+You need an access token to publish, install, and delete packages in GitHub Packages. You can use a personal access token to authenticate with your username directly to GitHub Packages or the GitHub API. You can use a GITHUB_TOKEN to authenticate using a GitHub Actions workflow. You can authenticate to GitHub Packages with Docker using the docker login command.
+alternatively we can do below to login:
+docker login docker.pkg.github.com --username <user> --password <password>
+
+
 For more information visit https://help.github.com/en
